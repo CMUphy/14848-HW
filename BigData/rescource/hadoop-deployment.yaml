@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-hadoop-deployment
+  labels:
+    app: my-hadoop-deployment
+spec:
+  selector:
+     matchLabels:
+       app: my-hadoop-deployment
+  replicas: 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata:
+      labels:
+        app: my-hadoop-deployment
+    spec:
+      containers:
+        - image: ibmcom/iop-hadoop
+          imagePullPolicy: Always
+          name: my-hadoop-deployment
+          ports:
+            - containerPort: 50070

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service              # 1
+metadata:
+  name: my-driver-service
+spec:
+  type: LoadBalancer       # 2
+  ports:
+  - port: 23333              # 3
+    protocol: TCP          # 4
+    targetPort: 23333         # 5
+  selector:                # 6
+    app:  my-driver-deployment       # 7
