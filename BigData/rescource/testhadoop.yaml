@@ -51,6 +51,12 @@ spec:
             configMapKeyRef:
               name: kube-hadoop-conf
               key: HDOOP_YARN_MASTER
+    limits:
+        memory: "1000Mi"
+        cpu: "100"
+    requests:
+        memory: "1000Mi"
+        cpu: "100"
   restartPolicy: Always
 ---
 apiVersion: v1
