@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service              # 1
+metadata:
+  name: my-driver-service
+spec:
+  type: LoadBalancer       # 2
+  ports:
+  - port: 1024              # 3
+    protocol: TCP          # 4
+    targetPort: 1024 
+    name: server    
+  - port: 2333              # 3
+    protocol: TCP          # 4
+    targetPort: 2333        # 5
+    name: hadoop
+  - port: 2334              # 3
+    protocol: TCP          # 4
+    targetPort: 2334         # 5
+    name: spark
+  - port: 2335              # 3
+    protocol: TCP          # 4
+    targetPort: 2335         # 5
+    name: jupyter
+  - port: 2336              # 3
+    protocol: TCP          # 4
+    targetPort: 2336         # 5
+    name: sonarqube
+  selector:                # 6
+    app:  my-driver-deployment       # 7

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-driver-deployment
+  labels:
+    app: my-driver-deployment
+spec:
+  selector:
+     matchLabels:
+       app: my-driver-deployment
+  replicas: 1
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata:
+      labels:
+        app: my-driver-deployment
+    spec:
+      containers:
+        - image: haoyup/driver:v1
+          imagePullPolicy: Always
+          name: my-driver-deployment
+          env:
+            - name: JUPYTER_NOTEBOOK
+              value: "http://my-jupyter-notebook"
+            - name: SPARK
+              value: "http://my-spark"
+            - name: SONARQUBE
+              value: "http://my-sonarqube"
+            - name: HADOOP
+              value: "http://hadoop-hdfs-master"
+          ports:
+            - containerPort: 1024
+            - containerPort: 2333
+            - containerPort: 2334
+            - containerPort: 2335
+            - containerPort: 2336
