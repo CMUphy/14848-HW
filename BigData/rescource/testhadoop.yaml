@@ -33,12 +33,10 @@ metadata:
 spec:
   containers:
     - name: hdfs-master
-      limits:
-        memory: "1000Mi"
-        cpu: "100"
-      requests:
-        memory: "1000Mi"
-        cpu: "100"
+      resources:
+          requests:
+            memory: "1000Mi"
+            cpu: "100"
       image: kubeguide/hadoop:latest
       imagePullPolicy: IfNotPresent
       ports:
