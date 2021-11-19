@@ -21,12 +21,21 @@ spec:
         app: my-driver-deployment
     spec:
       containers:
-        - image: haoyup/my-driver:v6
+        - image: haoyup/driver:v1
           imagePullPolicy: Always
           name: my-driver-deployment
           env:
             - name: JUPYTER_NOTEBOOK
               value: "http://my-jupyter-notebook"
-
+            - name: SPARK
+              value: "http://my-spark"
+            - name: SONARQUBE
+              value: "http://my-sonarqube"
+            - name: HADOOP
+              value: "http://hadoop-hdfs-master"
           ports:
-            - containerPort: 23333
+            - containerPort: 1024
+            - containerPort: 2333
+            - containerPort: 2334
+            - containerPort: 2335
+            - containerPort: 2336

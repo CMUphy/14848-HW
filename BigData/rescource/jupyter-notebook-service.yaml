@@ -4,7 +4,7 @@ metadata:
   name: my-jupyter-notebook
 spec:
   ports:
-    - port: 81
+    - port: 8888
       protocol: TCP
       targetPort: 8888
   selector:
