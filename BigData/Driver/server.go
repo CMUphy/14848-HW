@@ -1,6 +1,6 @@
 package main
+
 import (
-	"errors"
 	"fmt"
 	"log"
 	"net"
@@ -38,13 +38,13 @@ func establishProxy(){
 	//Spark:="http://localhost"
 	SonarQubeUrl := SonarQube + ":9000"
 
-	Spark := os.Getenv("SONARQUBE")
+	Spark := os.Getenv("SPARK")
 	//Spark:="http://localhost"
 	SparkUrl := Spark + ":8080"
 
-	Hadoop := os.Getenv("SONARQUBE")
+	Hadoop := os.Getenv("HADOOP")
 	//Spark:="http://localhost"
-	HadoopUrl := Hadoop + ":32007"
+	HadoopUrl := Hadoop + ":50070"
 
 	go proxyServer(HadoopUrl,":2333")
 	go proxyServer(SparkUrl,":2334")
@@ -80,7 +80,7 @@ func main() {
 }
 //处理连接
 func handleConnection(conn net.Conn) {
-	currentIP := "localhost"
+	currentIP := "34.136.171.185"
 	buffer := make([]byte, 2048)
 	for {
 		n, err := conn.Read(buffer)
@@ -112,25 +112,4 @@ func CheckError(err error) {
 		fmt.Fprintf(os.Stderr, "Fatal error: %s", err.Error())
 		os.Exit(1)
 	}
-}
-
-func getClientIp() (string ,error) {
-	addrs, err := net.InterfaceAddrs()
-
-	if err != nil {
-		return "",err
-	}
-
-	for _, address := range addrs {
-		// 检查ip地址判断是否回环地址
-		if ipnet, ok := address.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
-			if ipnet.IP.To4() != nil {
-				return ipnet.IP.String(),nil
-			}
-
-		}
-	}
-
-	return "", errors.New("Can not find the client ip address!")
-
 }
