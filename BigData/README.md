@@ -44,12 +44,12 @@
 
 ## 4. Result of deployment
 We can run ```kubectl get pods``` to see the running pods.  
+  ![image](https://user-images.githubusercontent.com/54975123/142711837-49666268-49e7-4f1e-9f8e-bb041be2a9da.png)  
   
-![image](https://user-images.githubusercontent.com/54975123/142711498-82825c3a-c26b-4d64-9a21-e6555d589ee0.png)  
 Or we can use the GCP dashboard to see the pods and services.  
   
-![image](https://user-images.githubusercontent.com/54975123/142711294-b221cedb-b82e-41ef-bc0d-86dfb5ad3446.png)
-![image](https://user-images.githubusercontent.com/54975123/142711299-fe3128b1-5088-4bf5-bac0-4aa5b1016e18.png)
+![image](https://user-images.githubusercontent.com/54975123/142711859-e4d47001-b008-4338-b6a8-641ced20fd39.png)
+![image](https://user-images.githubusercontent.com/54975123/142711862-84ac4f5e-c6d1-41ef-a769-6df66081bc11.png)
 
 # Get the ip address of the driver and change the address of server.go
 At first, the ip address of server.go is listend on localhost, once it is exposed, we need to change it to the external ip address.  
