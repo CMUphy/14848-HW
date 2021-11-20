@@ -1,3 +1,7 @@
+# The link of video:
+  
+  https://youtu.be/JURRhp2ddHc
+  
 # Prepare all the docker files needed:
  Driver : https://hub.docker.com/repository/docker/haoyup/driver  
    
