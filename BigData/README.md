@@ -56,10 +56,9 @@ Or we can use the GCP dashboard to see the pods and services.
 ![image](https://user-images.githubusercontent.com/54975123/142711862-84ac4f5e-c6d1-41ef-a769-6df66081bc11.png)
 
 # Get the ip address of the driver and change the address of server.go
-At first, the ip address of server.go is listend on localhost, once it is exposed, we need to change it to the external ip address.  
+At first, the ```currentIP``` of server.go is listend on localhost, once it is exposed, we need to change it to the external ip address.  
   
-![image](https://user-images.githubusercontent.com/54975123/142711303-68a19398-0390-4ff1-be35-00ff9d501501.png)
-
+![image](https://user-images.githubusercontent.com/54975123/142713479-defa6017-f9ef-4a43-8108-116fa9359b11.png)
 # Rebuild and push driver image
 ```docker build -t haoyup/driver:v1 .```  
   
