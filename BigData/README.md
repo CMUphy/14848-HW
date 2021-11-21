@@ -65,7 +65,7 @@ At first, the ```currentIP``` of server.go is listend on localhost, once it is e
 ```docker push haoyup/driver:v1```  
   
 # Redeploy driver
-  ```kubectl delete deployment my-driver-deployment```  
+  ```kubectl delete deployment my-driver-deployment```   
   ```kubectl apply -f driver-deployment.yaml```  
 # Launch the BigTableTerminal.jar and input the ip address
 The GUI send request to the exposed ip address of server, to indicate the ip address, we need to input it into the text feild and click ok.  
